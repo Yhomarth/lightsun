@@ -95,7 +95,7 @@ class Producto(ClaseModelo):
     
     codigo_barra = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=200)
-    precio = models.FloatField(default=8)
+    precio = models.FloatField(default=0)
     existencia = models.IntegerField(default=0)
     ultima_compra = models.DateField(null=True, blank=True)
 
@@ -115,3 +115,4 @@ class Producto(ClaseModelo):
     
     class Meta:
         verbose_name_plural = "Productos" 
+        unique_together = ('codigo', 'codigo_barra')
